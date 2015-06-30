@@ -1,0 +1,80 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Eat on the way!</h1>
+    <p class="lead">Enter start and end point, find grub on the way!</p>
+     <div id="gallery" style="width: 50%;height: 50%">
+        <img src="assets/images/logo_1675080_web.jpg" alt="fast food!"/>
+    </div>
+  </div>
+</header>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-eatontheway navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+           <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+      </div>
+<!--       <li ng-repeat="place in places.data" id="place{{place.id}}" class="nav">
+        <a href="#">{{place.name}}</a>  <!--<a ng-click="deleteItem($index)" class="delete-item">x</a>-->
+      </li> -->
+    </div>  
+    <div id="map_canvas" class="span8" style="min-height: 500px;">
+    </div>
+    <!-- <div id="map_canvas" class="span8" style="min-height: 500px;"></div> --> 
+    <div>
+      <p>
+      <label for="from">From</label>
+      <textarea rows="1" cols="50" ng-model="from_text"/>
+      </p>
+      <p>
+      <label for="To">To</label>
+      <textarea rows="1" cols="50" ng-model="to_text"/>
+      </p>
+      <p>
+       <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Features:</h1>
+    <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
+      <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
+    </ul>
+  </div>
+</div>
+
+  <form class="thing-form">
+    <label>Syncs in realtime across clients</label>
+    <p class="input-group">
+      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing"/>
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
+      </span>
+    </p>
+  </form>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>Angular Fullstack v2.0.13 |
+        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+  </div>
+</footer>
